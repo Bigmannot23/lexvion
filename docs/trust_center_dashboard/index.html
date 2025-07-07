@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lexvion Trust Center Dashboard</title>
+  <style>
+    body { font-family: Arial; margin: 2em; background: #f8fafc; }
+    .card { background: #fff; border-radius: 10px; box-shadow: 0 2px 8px #ccc; margin-bottom: 2em; padding: 2em; }
+    h1 { color: #0c204b; }
+    .good { color: green; }
+    .bad { color: red; }
+    .audit-btn { padding: 0.6em 1.5em; border: none; background: #1761fd; color: #fff; border-radius: 5px; font-size: 1em; text-decoration: none; display: inline-block; margin-top: 1em; }
+    .audit-btn:hover { background: #0e46a3; }
+  </style>
+</head>
+<body>
+
+<h1>Lexvion Trust Center</h1>
+<div id="audit-status" style="margin-bottom:2em;"></div>
+<div id="last-bundle-timestamp" style="margin-bottom:1.5em; color:#666;"></div>
+
+<!-- Trust Q&A Bot Widget -->
+<div class="card" id="trust-bot-card">
+  <h2>Trust Q&A Bot</h2>
+  <div id="chat-history" style="height:180px;overflow-y:auto;background:#f3f3f9;border-radius:8px;padding:1em;margin-bottom:1em;font-size:1em;"></div>
+  <form id="chat-form" style="display:flex;gap:0.5em;">
+    <input type="text" id="chat-input" placeholder="Ask about our compliance..." style="flex:1;padding:0.7em 1em;border-radius:5px;border:1px solid #ccc;font-size:1em;">
+    <button type="submit" class="audit-btn" style="background:#0070ff;">Ask</button>
+  </form>
+</div>
+
+<div class="card">
+  <h2>Compliance Badge</h2>
+  <ul id="badgelist" style="font-size:1.3em; list-style:none; padding-left:0;"></ul>
+</div>
+
+<div class="card">
+  <h2>Download Audit Bundle</h2>
+  <a id="audit-download-link" class="audit-btn" href="#" style="display:none" download>
+    Download Latest Audit Bundle
+  </a>
+</div>
+
+<div class="card">
+  <h2>Incident Drill</h2>
+  <button id="run-drill-btn" class="audit-btn" onclick="runDrill()" style="background:#e62e2e;margin-top:0;">Run Red Team Drill</button>
+  <span id="drill-status" style="margin-left:1em;color:#555;"></span>
+</div>
+
+<div class="card">
+  <h2>Operator Sign-off</h2>
+  <pre id="signoff"></pre>
+</div>
+
+<div class="card">
+  <h2>Incident & Drill Timeline</h2>
+  <table id="timeline-table" style="width:100%; border-collapse:collapse;">
+    <thead>
+      <tr>
+        <th style="border-bottom:1px solid #ccc;">Timestamp</th>
+        <th style="border-bottom:1px solid #ccc;">Scenario</th>
+        <th style="border-bottom:1px solid #ccc;">Outcome</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+  <button id="export-csv-btn" class="audit-btn" type="button" style="margin-top:1em; background:#248a3d;">
+    Export Timeline as CSV
+  </button>
+</div>
+
+<script>
+// --- Trust Q&A Bot JS ---
+document.addEventListener('DOMContentLoaded', function() {
+  // Chat UI logic
+  const chatForm = document.getElementById('chat-form');
+  const chatInput = document.getElementById('chat-input');
+  const chatHistory = document.getElementById('chat-history');
+
+  function appendMessage(sender, text) {
+    const msg = document.createElement('div');
+    msg.innerHTML = `<b>${sender}:</b> ${text}`;
+    chatHistory.appendChild(msg);
+    chatHistory.scrollTop = chatHistory.scrollHeight;
+  }
+
+  if (chatForm) {
+    chatForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const question = chatInput.value.trim();
+      if (!question) return;
+      appendMessage("You", question);
+      chatInput.value = "";
+
+      // Show loading...
+      appendMessage("TrustBot", "<em>Thinking…</em>");
+
+      fetch('http://127.0.0.1:5050/api/trust_qa', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({question: question})
+      })
+      .then(r => r.json())
+      .then(data => {
+        // Remove "Thinking…" message
+        chatHistory.lastChild.remove();
+        appendMessage("TrustBot", data.answer || "(no response)");
+      })
+      .catch(() => {
+        chatHistory.lastChild.remove();
+        appendMessage("TrustBot", "<span style='color:red'>Error reaching Trust AI server.</span>");
+      });
+    });
+  }
+});
+
+// --- Existing Dashboard JS (all features below remain unchanged) ---
+
+// AUDIT STATUS BADGE + SIGNOFF + BADGES
+fetch('../../badges/compliance_status.json')
+  .then(r => r.json())
+  .then(data => {
+    // Audit ready badge
+    const badgeColor = data.audit_ready ? 'green' : 'red';
+    const badgeText = data.audit_ready ? 'AUDIT READY' : 'NOT AUDIT READY';
+    document.getElementById('audit-status').innerHTML =
+      `<span style="background:${badgeColor};color:white;padding:0.5em 1.5em;border-radius:1em;font-weight:bold;">${badgeText}</span>`;
+    // Badges list
+    const statusMap = {
+      audit_ready: { label: "Audit Ready", emoji: data.audit_ready ? "✅" : "❌", color: data.audit_ready ? "green" : "red" },
+      operator_signoff: { label: "Operator Signoff", emoji: data.operator_signoff === "Confirmed" ? "✅" : "❌", color: data.operator_signoff === "Confirmed" ? "green" : "red" },
+      lineage_tracking: { label: "Lineage Tracking", emoji: data.lineage_tracking ? "✅" : "❌", color: data.lineage_tracking ? "green" : "red" },
+      watermarking_enabled: { label: "Watermarking", emoji: data.watermarking_enabled ? "✅" : "❌", color: data.watermarking_enabled ? "green" : "red" },
+      last_drill_date: { label: "Last Drill", emoji: "📅", color: "gray" },
+      go_live_checklist: { label: "Go-Live Checklist", emoji: data.go_live_checklist === "Complete" ? "✅" : "❌", color: data.go_live_checklist === "Complete" ? "green" : "red" }
+    };
+    let html = "";
+    Object.entries(statusMap).forEach(([key, val]) => {
+      let text = key === "last_drill_date"
+        ? `${val.emoji} <span style="color:${val.color}">${val.label}:</span> <b>${data.last_drill_date || "N/A"}</b>`
+        : `${val.emoji} <span style="color:${val.color}">${val.label}</span>`;
+      html += `<li style="margin-bottom:.5em">${text}</li>`;
+    });
+    document.getElementById('badgelist').innerHTML = html;
+    document.getElementById('signoff').textContent = data.operator_signoff || "N/A";
+  })
+  .catch(() => {
+    document.getElementById('badgelist').innerHTML = "<li>Badge file not found!</li>";
+    document.getElementById('signoff').textContent = "N/A";
+  });
+
+// LAST AUDIT BUNDLE TIMESTAMP
+function getLatestBundle() {
+  fetch('../../audit_bundles/')
+    .then(response => response.text())
+    .then(text => {
+      const zipNames = Array.from(text.matchAll(/audit_bundle_[^"]+\.zip/g)).map(m => m[0]);
+      if (zipNames.length === 0) return;
+      zipNames.sort();
+      const latest = zipNames[zipNames.length - 1];
+      const btn = document.getElementById('audit-download-link');
+      btn.href = '../../audit_bundles/' + latest;
+      btn.style.display = 'inline-block';
+      const match = latest.match(/audit_bundle_(\d{8}T\d{6})Z\.zip/);
+      if (match) {
+        const ts = match[1];
+        const formatted = ts.slice(0,4)+'-'+ts.slice(4,6)+'-'+ts.slice(6,8)+' '+ts.slice(9,11)+':'+ts.slice(11,13)+':'+ts.slice(13,15)+' UTC';
+        document.getElementById('last-bundle-timestamp').textContent = "Last Audit Bundle: " + formatted;
+      }
+    });
+}
+window.onload = getLatestBundle;
+
+// RUN DRILL BUTTON — LOG TO BACKEND
+function runDrill() {
+  const btn = document.getElementById('run-drill-btn');
+  const status = document.getElementById('drill-status');
+  status.textContent = "";
+  btn.disabled = true;
+  btn.textContent = "Running...";
+  fetch('http://127.0.0.1:5050/api/run_drill', { method: 'POST' })
+    .then(response => response.json())
+    .then(result => {
+      btn.disabled = false;
+      btn.textContent = "Run Red Team Drill";
+      status.textContent = "✅ Drill logged: " + result.event.timestamp;
+      setTimeout(() => { status.textContent = ""; }, 3000);
+    })
+    .catch(() => {
+      btn.disabled = false;
+      btn.textContent = "Run Red Team Drill";
+      status.textContent = "❌ Drill failed (is server.py running?)";
+    });
+}
+
+// LOAD TIMELINE TABLE FROM LOG
+fetch('../../logs/incident_log.json')
+  .then(r => r.json())
+  .then(log => {
+    if (!Array.isArray(log)) log = [];
+    const tbody = document.querySelector('#timeline-table tbody');
+    tbody.innerHTML = "";
+    log.slice().reverse().forEach(entry => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td style="padding:0.5em;border-bottom:1px solid #eee;">${entry.timestamp || ""}</td>
+        <td style="padding:0.5em;border-bottom:1px solid #eee;">${entry.scenario || ""}</td>
+        <td style="padding:0.5em;border-bottom:1px solid #eee;">${entry.outcome || ""}</td>
+      `;
+      tbody.appendChild(tr);
+    });
+  })
+  .catch(() => {
+    const tbody = document.querySelector('#timeline-table tbody');
+    tbody.innerHTML = `<tr><td colspan="3" style="color:#e62e2e;">Log file not found or empty.</td></tr>`;
+  });
+
+// EXPORT TIMELINE AS CSV (Robust & Safe)
+document.addEventListener('DOMContentLoaded', function() {
+  var btn = document.getElementById('export-csv-btn');
+  btn.addEventListener('click', function() {
+    fetch('../../logs/incident_log.json')
+      .then(r => r.json())
+      .then(log => {
+        if (!Array.isArray(log)) log = [];
+        const header = ["timestamp","scenario","outcome"];
+        let csv = header.join(",") + "\n";
+        log.slice().reverse().forEach(entry => {
+          csv += [
+            `"${String(entry.timestamp||"").replace(/"/g,'""')}"`,
+            `"${String(entry.scenario||"").replace(/"/g,'""')}"`,
+            `"${String(entry.outcome||"").replace(/"/g,'""')}"`
+          ].join(",") + "\n";
+        });
+        const blob = new Blob([csv], {type: "text/csv"});
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "incident_timeline.csv";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      })
+      .catch(() => {
+        alert("Failed to fetch or export log file. Please check that '../../logs/incident_log.json' exists.");
+      });
+  });
+});
+</script>
+</body>
+</html>
+
+
+

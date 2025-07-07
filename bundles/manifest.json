@@ -1,0 +1,18 @@
+{
+  "files": [
+    {
+      "filename": "logs/incident_log.jsonl",
+      "hash": "4384bc097d9310b15ebf85a214914a2a6eea4c01aa83612568eeefb6bd5c7c08"
+    },
+    {
+      "filename": "configs/public_key.pem",
+      "hash": "62c1aadac71aa4a6a5747aded3a24d418e632aa3217e9ffb10e47f8e2f480c84"
+    },
+    {
+      "filename": "configs/compliance_status.json",
+      "hash": "2f8ba83503fe5f52f4607b9496960c041be8ff12849ebeb4b8dee8dbfa912046"
+    }
+  ],
+  "created_at": "2025-07-07T07:13:44.721856Z",
+  "merkle_root": "6795b63c160c481cda700d119875a6ee54dd55856523b8e5738ca0d83186f366"
+}

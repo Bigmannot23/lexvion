@@ -1,0 +1,109 @@
+[
+  {
+    "timestamp": "2025-07-04T09:15:00Z",
+    "scenario": "Red team drill \u00e2\u20ac\u201c Prompt injection attack",
+    "outcome": "Simulated"
+  },
+  {
+    "timestamp": 1751641902.7459023,
+    "scenario": "Prompt Injection",
+    "result": "Simulated attack detected and handled",
+    "operators_notified": true
+  },
+  {
+    "timestamp": 1751644099.9731972,
+    "scenario": "Prompt Injection",
+    "result": "Simulated attack detected and handled",
+    "operators_notified": true
+  },
+  {
+    "timestamp": "2025-07-04 17:38:23 UTC",
+    "scenario": "Red team drill (dashboard trigger)",
+    "outcome": "Simulated via Trust Center"
+  },
+  {
+    "timestamp": "2025-07-04 17:38:27 UTC",
+    "scenario": "Red team drill (dashboard trigger)",
+    "outcome": "Simulated via Trust Center"
+  },
+  {
+    "timestamp": "2025-07-04 17:38:39 UTC",
+    "scenario": "Red team drill (dashboard trigger)",
+    "outcome": "Simulated via Trust Center"
+  },
+  {
+    "timestamp": "2025-07-04 17:44:22 UTC",
+    "scenario": "Red team drill (dashboard trigger)",
+    "outcome": "Simulated via Trust Center"
+  },
+  {
+    "timestamp": "2025-07-04 17:44:23 UTC",
+    "scenario": "Red team drill (dashboard trigger)",
+    "outcome": "Simulated via Trust Center"
+  },
+  {
+    "timestamp": "2025-07-04 17:54:40 UTC",
+    "scenario": "Red team drill (dashboard trigger)",
+    "outcome": "Simulated via Trust Center"
+  },
+  {
+    "timestamp": "2025-07-04 17:54:41 UTC",
+    "scenario": "Red team drill (dashboard trigger)",
+    "outcome": "Simulated via Trust Center"
+  },
+  {
+    "timestamp": "2025-07-04 17:54:43 UTC",
+    "scenario": "Red team drill (dashboard trigger)",
+    "outcome": "Simulated via Trust Center"
+  },
+  {
+    "timestamp": "2025-07-04 17:54:55 UTC",
+    "scenario": "Red team drill (dashboard trigger)",
+    "outcome": "Simulated via Trust Center"
+  },
+  {
+    "timestamp": "2025-07-04 17:58:30 UTC",
+    "scenario": "Red team drill (dashboard trigger)",
+    "outcome": "Simulated via Trust Center"
+  },
+  {
+    "timestamp": "2025-07-04 17:58:33 UTC",
+    "scenario": "Red team drill (dashboard trigger)",
+    "outcome": "Simulated via Trust Center"
+  },
+  {
+    "timestamp": "2025-07-04 18:03:06 UTC",
+    "scenario": "Red team drill (dashboard trigger)",
+    "outcome": "Simulated via Trust Center"
+  },
+  {
+    "timestamp": "2025-07-04 18:03:08 UTC",
+    "scenario": "Red team drill (dashboard trigger)",
+    "outcome": "Simulated via Trust Center"
+  },
+  {
+    "timestamp": "2025-07-04 18:03:11 UTC",
+    "scenario": "Red team drill (dashboard trigger)",
+    "outcome": "Simulated via Trust Center"
+  },
+  {
+    "timestamp": "2025-07-04 21:37:23 UTC",
+    "scenario": "Red team drill (dashboard trigger)",
+    "outcome": "Simulated via Trust Center"
+  },
+  {
+    "timestamp": "2025-07-04 21:41:53 UTC",
+    "scenario": "Red team drill (dashboard trigger)",
+    "outcome": "Simulated via Trust Center"
+  },
+  {
+    "timestamp": "2025-07-04 22:14:24 UTC",
+    "scenario": "Red team drill (dashboard trigger)",
+    "outcome": "Simulated via Trust Center"
+  },
+  {
+    "timestamp": "2025-07-04 23:18:59 UTC",
+    "scenario": "Red team drill (dashboard trigger)",
+    "outcome": "Simulated via Trust Center"
+  }
+]

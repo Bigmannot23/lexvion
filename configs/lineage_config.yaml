@@ -1,0 +1,4 @@
+lineage_capture: true
+lineage_storage_path: "logs/lineage_log.json"
+alert_on_missing_lineage: true
+max_lineage_depth: 5

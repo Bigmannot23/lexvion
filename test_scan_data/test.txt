@@ -1,0 +1,6 @@
+import sys
+sys.path.insert(0, "./src")
+from src.scanner.scan import scan_file
+
+result = scan_file("test.txt")
+print(result)

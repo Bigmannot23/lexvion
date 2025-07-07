@@ -1,0 +1,2 @@
+{"log_index": 0, "timestamp": "2025-07-07T04:40:50.870341Z", "event_type": "incident_detected", "actor": "alice@lexvion.com", "Lexvion: tampered data, unauthorized edit"
+, "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000", "nonce": 14382500797333414197, "entry_hash": "29359296541a7a87253d10eb8c8869923b580e414c7daa488919b3d254aade19", "signature": "5wdRl8QffKFCnrRte9y+MXDp+6fKFsK55VIcQxqTKE1lzjhA8h1JcAAYIJNgChXa3UNYq6gKBI5BF71GUgrSAA=="}

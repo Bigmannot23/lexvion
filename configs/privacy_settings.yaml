@@ -1,0 +1,4 @@
+differential_privacy_mode: false
+data_masking: true
+allowed_data_regions: ["US", "EU"]
+data_retention_days: 30

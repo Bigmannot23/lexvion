@@ -1,0 +1,6 @@
+watermarking_enabled: true
+watermark_algorithm: "digital_signature"
+public_key_path: "configs/public_key.pem"
+private_key_path: "configs/private_key.pem"
+key_rotation_interval_days: 90
+max_verification_attempts: 3
