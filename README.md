@@ -1,5 +1,8 @@
 ## 🚦 Audit Evidence Operator Guide (How to Prove This System Is Real)
 
+> 🗣️ *“Even though it’s above my head, lol — you’re a high-agency individual. Creating value.”*  
+> — **Erik Burgess**, LinkedIn
+
 **To validate the Lexvion Trust Center’s audit-by-default evidence pipeline:**
 
 1. **Go to the Trust Center dashboard in your browser.**
