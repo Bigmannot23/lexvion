@@ -30,7 +30,7 @@
 
 **This is the single source of truth for all audit, compliance, and trust proof. Every bundle is produced automatically. Nothing is hidden.**
 
-*Last audit bundle generated: [your latest ZIP filename here]*
+*Last audit bundle generated: [version 1]*
 
 
 
