@@ -1,0 +1,20 @@
+name: Sandbox Test
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Show current files/folders
+        run: ls -al
+      # Add your test or lint steps below as you scale
+
+      # Example Python sanity check (optional):
+      # - name: Run basic Python version check
+      #   run: python --version
