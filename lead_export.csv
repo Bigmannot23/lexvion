@@ -1,0 +1,99 @@
+company_name,website,contact_email,tags,lead_score
+HubSpot,https://hubspot.com,info@hubspot.com,CRM,88
+Zapier,https://zapier.com,help@zapier.com,Automation,85
+Airtable,https://airtable.com,team@airtable.com,Database,83
+Calendly,https://calendly.com,support@calendly.com,Productivity,81
+Webflow,https://webflow.com,contact@webflow.com,Website Builder,80
+Intercom,https://intercom.com,support@intercom.com,Customer Messaging,91
+Freshdesk,https://freshdesk.com,support@freshdesk.com,Help Desk,93
+Pipedrive,https://pipedrive.com,info@pipedrive.com,Sales CRM,84
+Miro,https://miro.com,support@miro.com,Online Whiteboard,92
+ClickUp,https://clickup.com,help@clickup.com,Project Management,94
+Gong,https://gong.io,info@gong.io,Revenue Intelligence,85
+Loom,https://loom.com,help@loom.com,Video Messaging,88
+Calendly,https://calendly.com,support@calendly.com,Meeting Scheduling,86
+Lucidchart,https://lucidchart.com,support@lucidchart.com,Diagramming,87
+Typeform,https://typeform.com,support@typeform.com,Surveys/Forms,82
+SendGrid,https://sendgrid.com,support@sendgrid.com,Email API,91
+Segment,https://segment.com,support@segment.com,Customer Data Platform,89
+Datadog,https://datadoghq.com,support@datadoghq.com,Monitoring/Analytics,95
+SalesLoft,https://salesloft.com,info@salesloft.com,Sales Engagement,78
+Chargebee,https://chargebee.com,support@chargebee.com,Subscription Billing,80
+Zendesk,https://zendesk.com,support@zendesk.com,Customer Support,90
+Amplitude,https://amplitude.com,support@amplitude.com,Product Analytics,93
+SurveyMonkey,https://surveymonkey.com,support@surveymonkey.com,Survey Tools,83
+Sprout Social,https://sproutsocial.com,info@sproutsocial.com,Social Media,89
+Braze,https://braze.com,support@braze.com,Customer Engagement,86
+Workato,https://workato.com,support@workato.com,Workflow Automation,92
+Outreach,https://outreach.io,support@outreach.io,Sales Automation,88
+Confluent,https://confluent.io,info@confluent.io,Event Streaming,95
+BigCommerce,https://bigcommerce.com,support@bigcommerce.com,Ecommerce Platform,78
+Appcues,https://appcues.com,help@appcues.com,User Onboarding,83
+Sisense,https://sisense.com,info@sisense.com,Business Intelligence,91
+Gusto,https://gusto.com,info@gusto.com,Payroll/HR,94
+Mixpanel,https://mixpanel.com,support@mixpanel.com,Analytics,90
+Benchling,https://benchling.com,info@benchling.com,Life Sciences R&D,83
+CleverTap,https://clevertap.com,info@clevertap.com,Mobile Marketing,82
+Hotjar,https://hotjar.com,support@hotjar.com,User Analytics,88
+WalkMe,https://walkme.com,info@walkme.com,Digital Adoption,81
+Druva,https://druva.com,info@druva.com,Cloud Data Protection,79
+Pluralsight,https://pluralsight.com,support@pluralsight.com,EdTech,93
+Vercel,https://vercel.com,support@vercel.com,Developer Platform,87
+Snyk,https://snyk.io,contact@snyk.io,Security,84
+Lever,https://lever.co,support@lever.co,Recruiting/ATS,92
+Expensify,https://expensify.com,help@expensify.com,Expense Management,88
+Gainsight,https://gainsight.com,support@gainsight.com,Customer Success,90
+Conga,https://conga.com,info@conga.com,Document Automation,85
+Heap,https://heap.io,support@heap.io,Product Analytics,81
+Greenhouse,https://greenhouse.io,support@greenhouse.io,Recruiting,89
+Xero,https://xero.com,info@xero.com,Accounting,84
+PagerDuty,https://pagerduty.com,support@pagerduty.com,Incident Management,92
+Alation,https://alation.com,info@alation.com,Data Catalog,88
+Klaviyo,https://klaviyo.com,support@klaviyo.com,Email Marketing,86
+Pipefy,https://pipefy.com,support@pipefy.com,Workflow Automation,84
+Rippling,https://rippling.com,support@rippling.com,HR/IT Platform,93
+OpenAI,https://openai.com,info@openai.com,AI Platform,95
+Apollo.io,https://apollo.io,support@apollo.io,Sales Intelligence,80
+Algolia,https://algolia.com,support@algolia.com,Search API,89
+UserTesting,https://usertesting.com,support@usertesting.com,UX Research,78
+Onfido,https://onfido.com,info@onfido.com,Identity Verification,88
+Mattermost,https://mattermost.com,info@mattermost.com,Team Messaging,79
+Mavenlink,https://mavenlink.com,info@mavenlink.com,Project Management,85
+Contentful,https://contentful.com,support@contentful.com,Headless CMS,87
+Workiva,https://workiva.com,info@workiva.com,Enterprise Collaboration,94
+ServiceTitan,https://servicetitan.com,info@servicetitan.com,Field Service,78
+Drift,https://drift.com,support@drift.com,Conversational Marketing,80
+Pleo,https://pleo.io,support@pleo.io,Expense Management,81
+Bitrise,https://bitrise.io,hello@bitrise.io,Mobile CI/CD,77
+Appen,https://appen.com,info@appen.com,AI Data,85
+Pipe,https://pipe.com,info@pipe.com,Revenue Financing,79
+Sendinblue,https://sendinblue.com,contact@sendinblue.com,Email Marketing,87
+Revolut,https://revolut.com,support@revolut.com,Fintech,86
+TestGorilla,https://testgorilla.com,info@testgorilla.com,HR/Assessment,88
+Gtmhub,https://gtmhub.com,info@gtmhub.com,OKR Platform,82
+Jotform,https://jotform.com,support@jotform.com,Online Forms,89
+Coda,https://coda.io,help@coda.io,Docs/Collaboration,85
+OneTrust,https://onetrust.com,info@onetrust.com,Privacy/Compliance,87
+Spendesk,https://spendesk.com,help@spendesk.com,Spend Management,81
+Quinyx,https://quinyx.com,info@quinyx.com,Workforce Management,83
+Tray.io,https://tray.io,help@tray.io,Workflow Automation,80
+Kissflow,https://kissflow.com,support@kissflow.com,Workflow Software,92
+Workhuman,https://workhuman.com,info@workhuman.com,Employee Recognition,84
+Breezy HR,https://breezy.hr,support@breezy.hr,Recruiting,78
+Hootsuite,https://hootsuite.com,help@hootsuite.com,Social Media,79
+ActiveCampaign,https://activecampaign.com,help@activecampaign.com,Marketing Automation,89
+Chili Piper,https://chilpiper.com,help@chilpiper.com,Meeting Automation,84
+Aha!,https://aha.io,support@aha.io,Product Management,90
+Blue Yonder,https://blueyonder.com,info@blueyonder.com,Supply Chain SaaS,92
+Unbounce,https://unbounce.com,support@unbounce.com,Landing Pages,78
+Dixa,https://dixa.com,hello@dixa.com,Omnichannel Customer Service,86
+Smartsheet,https://smartsheet.com,support@smartsheet.com,Work Management,94
+Kaseya,https://kaseya.com,info@kaseya.com,IT Management,85
+Cloudflare,https://cloudflare.com,support@cloudflare.com,Web Performance/Security,88
+SurveySparrow,https://surveysparrow.com,hello@surveysparrow.com,Survey Tools,87
+Cynet,https://cynet.com,info@cynet.com,Cybersecurity,93
+SignRequest,https://signrequest.com,support@signrequest.com,eSignatures,82
+Samsara,https://samsara.com,info@samsara.com,IoT/Operations,84
+Wistia,https://wistia.com,info@wistia.com,Video Marketing,79
+Guru,https://getguru.com,info@getguru.com,Knowledge Management,83
+
