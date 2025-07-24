@@ -1,3 +1,4 @@
+[lexvion_README_updated.md](https://github.com/user-attachments/files/21419617/lexvion_README_updated.md)
 ## 🚦 Audit Evidence Operator Guide (How to Prove This System Is Real)
 
 > 🗣️ *“Even though it’s above my head, lol — you’re a high-agency individual. Creating value is key.”*  
