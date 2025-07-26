@@ -1,0 +1,5 @@
+{
+  "storage_path": "audit_bundles/",
+  "signing_algorithm": "ed25519",
+  "retention_days": 365
+}

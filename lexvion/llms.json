@@ -1,0 +1,28 @@
+{
+  "name": "Lexvion Compliance Engine",
+  "description": "Ensure provable compliance. Lexvion logs evidence of every workflow with cryptographic signatures, bundles the results and provides a self-serve trust center so regulators and customers can verify your practices without manual spreadsheets.",
+  "usage": [
+    "Deploy the FastAPI server (container provided) or integrate Lexvion into your existing stack.",
+    "Use the provided SDK to log events, actions and data.",
+    "Configure privacy policies and storage locations.",
+    "Point stakeholders to the trust center to request audit bundles."
+  ],
+  "architecture": [
+    "Evidence logging records actions, data and decisions with cryptographic signatures.",
+    "Audit bundle generation packages evidence into a downloadable ZIP for auditors or customers.",
+    "Self-serve trust center offers a web portal for requesting bundles.",
+    "Configurable privacy and retention policies allow fine-grained control over what is stored or anonymized.",
+    "Built on Python and FastAPI; easily integrates with other systems."
+  ],
+  "inputs": "Project-specific inputs (see usage)",
+  "outputs": "Project-specific outputs (see usage)",
+  "tags": [
+    "lexvion",
+    "compliance",
+    "engine"
+  ],
+  "links": {
+    "repository": "https://github.com/Bigmannot23/lexvion",
+    "documentation": "OPERATOR_README.md"
+  }
+}
